@@ -7,6 +7,7 @@ syntax is available by running client.py with no arguments or right here<br>
 # requirements
 tweepy<br>
 python3<br>
+dotenv<br>
 
 
 i spent way too much of my life on this
