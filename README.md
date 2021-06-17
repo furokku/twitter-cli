@@ -6,11 +6,13 @@ syntax is available by running client.py with no arguments or right here<br>
 
 # how tf
 put your access token, access token secret, consumer key, consumer key secret in a .env like so<br>
-```CONSUMER_KEY = "your_consumer_key"
+```
+CONSUMER_KEY = "your_consumer_key"
 CONSUMER_KEY_SECRET = "your_consumer_key_secret"
 ACCESS_TOKEN = "your_access_token"
 ACCESS_TOKEN_SECRET = "your_access_token_secret"
-```<br>
+```
+<br>
 i might make it better in the future but for now i don't really care
 
 # requirements
