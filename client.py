@@ -52,12 +52,29 @@ def main():
 
 #   shittiest code ever conceived but if it works it works.
     if 'filename' in kwargDict.keys():
-        api.update_with_media(status=kwargDict['status'], filename=kwargDict['filename'])
+        api.update_with_media(
+            status=kwargDict['status'],
+            filename=kwargDict['filename']
+            )
+
     elif 'in_reply_to_status' in kwargDict.keys():
-        api.update_status(in_reply_to_status_id=kwargDict['in_reply_to_status'], status=kwargDict['status'], auto_populate_reply_metadata=True)
+        api.update_status(
+            in_reply_to_status_id=kwargDict['in_reply_to_status'],
+            status=kwargDict['status'],
+            auto_populate_reply_metadata=True
+            )
+
     elif 'in_reply_to_status' and 'filename' in kwargDict.keys():
-        api.update_with_media(status=kwargDict['status'], filename=kwargDict['filename'], in_reply_to_status_id=kwargDict['in_reply_to_status'], auto_populate_reply_metadata=True)
+        api.update_with_media(
+            status=kwargDict['status'],
+            filename=kwargDict['filename'],
+            in_reply_to_status_id=kwargDict['in_reply_to_status'],
+            auto_populate_reply_metadata=True
+            )
+        
     else:
-        api.update_status(status=kwargDict['status'])
+        api.update_status(
+            status=kwargDict['status']
+            )
 
 main()
