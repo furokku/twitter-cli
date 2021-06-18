@@ -43,38 +43,44 @@ def main():
     if 'fp' in locals():
         kwargDict['filename'] = fp
     if 'replyid' in locals():
-        kwargDict['in_reply_to_status'] = replyid
+        kwargDict['in_reply_to_status_id'] = replyid
+        kwargDict['auto_populate_reply_metadata'] = True
     if 'status' in locals():
         kwargDict['status'] = status
 
     print(f"{kwargDict}")
 
+#   i am very smart
+    if 'filename' in kwargDict.keys():
+        api.update_with_media(**kwargDict)
+    else:
+        api.update_status(**kwargDict)
 
 #   shittiest code ever conceived but if it works it works.
-    if 'filename' in kwargDict.keys():
-        api.update_with_media(
-            status=kwargDict['status'],
-            filename=kwargDict['filename']
-            )
-
-    elif 'in_reply_to_status' in kwargDict.keys():
-        api.update_status(
-            in_reply_to_status_id=kwargDict['in_reply_to_status'],
-            status=kwargDict['status'],
-            auto_populate_reply_metadata=True
-            )
-
-    elif 'in_reply_to_status' and 'filename' in kwargDict.keys():
-        api.update_with_media(
-            status=kwargDict['status'],
-            filename=kwargDict['filename'],
-            in_reply_to_status_id=kwargDict['in_reply_to_status'],
-            auto_populate_reply_metadata=True
-            )
-        
-    else:
-        api.update_status(
-            status=kwargDict['status']
-            )
+#    if 'filename' in kwargDict.keys():
+#        api.update_with_media(
+#            status=kwargDict['status'],
+#            filename=kwargDict['filename']
+#            )
+#
+#    elif 'in_reply_to_status' in kwargDict.keys():
+#        api.update_status(
+#            in_reply_to_status_id=kwargDict['in_reply_to_status_id'],
+#            status=kwargDict['status'],
+#            auto_populate_reply_metadata=True
+#            )#
+#
+#    elif 'in_reply_to_status' and 'filename' in kwargDict.keys():
+#        api.update_with_media(
+#            status=kwargDict['status'],
+#            filename=kwargDict['filename'],
+#            in_reply_to_status_id=kwargDict['in_reply_to_status_id'],
+#            auto_populate_reply_metadata=True
+#            )
+#        
+#    else:
+#        api.update_status(
+#            status=kwargDict['status']
+#            )
 
 main()
